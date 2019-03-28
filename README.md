@@ -15,5 +15,4 @@ In some cases other open-source code was used as the basis for the scripts, and 
 GNU General Public License for more details.
 ******************************************************************
 
-This folder is publicly open according to the GNU3 license (see the license file in this folder).
 
