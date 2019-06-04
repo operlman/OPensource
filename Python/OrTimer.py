@@ -5,7 +5,6 @@
 import numpy as np
 from threading import Timer
 import numpy as np
-import matplotlib.pyplot as plt
 import datetime
 import time
 import os #for using the operation system functions from python
