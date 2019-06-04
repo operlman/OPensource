@@ -5,6 +5,7 @@
 import numpy as np
 from threading import Timer
 import numpy as np
+import matplotlib.pyplot as plt
 import datetime
 import time
 import os #for using the operation system functions from python
@@ -18,7 +19,6 @@ def timeout():
 	for ind in range(0,4):
 		print('Time is up')
 		os.system("espeak 'Time is up'")
-
 
 # duration is in seconds so I multiply by 60
 t = Timer(NumMinutes * 60, timeout)
