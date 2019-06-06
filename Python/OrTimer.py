@@ -4,6 +4,7 @@
 
 import numpy as np
 from threading import Timer
+import matplotlib.pyplot as plt
 import numpy as np
 import datetime
 import time
@@ -14,11 +15,19 @@ print(datetime.datetime.now())
 NumMinutes = float(input("Please specify number of minutes to wait: "))
 
 def timeout():
+    #ploting T
+    
+    fig = plt.imshow([[1,1,1],[0,1,0]])
+    fig.set_cmap('viridis')
+    plt.show()
+    plt.axis('off')
+    plt.axis()
+    
+    for ind in range(0,4):
+        print('Time is up')
+        os.system("espeak 'Time is up'")
 
-	for ind in range(0,4):
-		print('Time is up')
-		os.system("espeak 'Time is up'")
-
+    
 # duration is in seconds so I multiply by 60
 t = Timer(NumMinutes * 60, timeout)
 t.start()
