@@ -19,9 +19,8 @@ def timeout():
     
     fig = plt.imshow([[1,1,1],[0,1,0]])
     fig.set_cmap('viridis')
-    plt.show()
     plt.axis('off')
-    plt.axis()
+    plt.show()
     
     for ind in range(0,4):
         print('Time is up')
