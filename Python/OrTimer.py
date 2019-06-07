@@ -2,12 +2,9 @@
 # Created by O.P at 21/12/17 (or@ieee.org)
 # Changes log: 
 
-import numpy as np
 from threading import Timer
 import matplotlib.pyplot as plt
-import numpy as np
 import datetime
-import time
 import os #for using the operation system functions from python
 
 print("Current time is:")
@@ -18,7 +15,8 @@ def timeout():
     #ploting T
     
     fig = plt.imshow([[1,1,1],[0,1,0]])
-    fig.set_cmap('viridis')
+    plt.colorbar(ticks=[0,0.5,1],orientation = 'vertical')
+    fig.set_cmap('Blues')
     plt.axis('off')
     plt.show()
     
