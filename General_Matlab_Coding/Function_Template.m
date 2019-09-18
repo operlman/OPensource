@@ -1,6 +1,6 @@
 function [output1,output2,etc]=functionmame(input1,input2,etc)
 % Purpose: 
-% Created: XX/XX/XX by Or Perlman (or@ieee.org)
+% Created: Month(text) Day#, Year# by Or Perlman (or@ieee.org)
 % Notes:
 %------------------------input variables-------------------------------------%
  

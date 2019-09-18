@@ -1,6 +1,6 @@
 %--------------------------- Script description---------------------------%
 % Purpose: 
-% Created: XX/XX/XX by Or Perlman (or@ieee.org)
+% Created: Month(text) Day#, Year# by Or Perlman (or@ieee.org)
 % Notes: 
 % Cnanges log:
 %-------------------------------------------------------------------------%
@@ -20,5 +20,5 @@ set(0,'DefaultFigureWindowStyle','docked')
 % set(0,'DefaultFigureWindowStyle','normal') %undocking figures
 
 %Reseting paths to default to avoid ambiguity
-pathtool %Then choose default
+restoredefaultpath %
 
