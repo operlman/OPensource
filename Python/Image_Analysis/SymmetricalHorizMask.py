@@ -27,7 +27,7 @@ def SymmetricalHorizMask(Im, Mask):
     fig=plt.figure(figsize=(40, 20))
     Im_ax = fig.add_subplot(1, 1, 1)
     plt.imshow(Im_With_Mask_Zeroed, cmap = 'hot')
-    Im_ax.set_title('Input image with mask as 0', fontsize=10)
+    Im_ax.set_title('Input image with mask as 0; Please mark the center of symmetry...', fontsize=10)
     Im_ax.set_axis_off()
 
 
@@ -64,13 +64,19 @@ def SymmetricalHorizMask(Im, Mask):
     ErodedIm = binary_erosion(SymmetHorMask.astype(int), structure = np.ones((3,3))).astype(int)
     BorderIm = SymmetHorMask.astype(int) - ErodedIm
     
-    Symmet_verts = np.where(BorderIm)
+    Symmet_verts_tuple = np.where(BorderIm)
+    
+    #Converting tuple to array
+    Symmet_verts = np.zeros((Symmet_verts_tuple[0].size,2))
+    Symmet_verts[:,0] = Symmet_verts_tuple[0]
+    Symmet_verts[:,1] = Symmet_verts_tuple[1]
 
+    
     Im_With_Mask_Zeroed[SymmetHorMask==True] = 0
     plt.imshow(Im_With_Mask_Zeroed, cmap = 'hot')
     Im_ax.set_title('Mask and its reflection zeroed', fontsize=10)
     Im_ax.set_axis_off()
 
-
+    
     return SymmetHorMask, Symmet_verts
     
