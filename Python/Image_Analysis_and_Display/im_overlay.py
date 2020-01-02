@@ -15,7 +15,7 @@ import io
 
 
 def im_overlay(back_im, back_cmap, back_clim, front_im, front_cmap,
-               front_clim, transparency_percent, mask, trans_background_flag=False):
+               front_clim, transparency_percent, mask, output_file_name, trans_background_flag=False):
     """
     :param back_im: background image (2D float np.array)
     :param back_cmap: background image colormap (e.g. 'gray')
@@ -25,6 +25,7 @@ def im_overlay(back_im, back_cmap, back_clim, front_im, front_cmap,
     :param front_clim: float tuple (cmap_min, cmap_max)
     :param transparency_percent: 0-100 % (0 is fully opaque)
     :param mask: 2D float np.array
+    :param output_file_name - string for output file name. Recommended to end with .png
     :param trans_background_flag: if True, than  backgruond image will be (100-transparency_percent) transparent
     :return: A overlayed_image.png image will be saved in the current directory
     """
@@ -121,28 +122,9 @@ def im_overlay(back_im, back_cmap, back_clim, front_im, front_cmap,
 
     overlayed_image = PIL.Image.alpha_composite(transparent_back_im, transparent_front_im)
     # overlayed_image.show()
-    overlayed_image.save('overlayed_image.png')
-    print('\noverlayed_image.png was successfully saved')
+    overlayed_image.save(output_file_name)
+    print('\n' + output_file_name + ' was successfully saved')
 
     return 0
 
 
-# Example run
-# Background image (T2 map)
-T2_im = sio.loadmat('B1L1T2/Ground_Truth_Maps.mat')['GT_T2']  # shape = 64, 64
-T2_cmap = 'gray'
-T2_clim = (0, 110)
-
-# Front im (MTR assymetry at 3.5 uT)
-MTR_im = sio.loadmat('B1L1T2/MTRasym_per_B1Batch1_LRP_1_day_18')['MTRasym_per_B1'][:, :, 1]  # MTR for 3.5 uT B1
-MTR_cmap = 'inferno'
-MTR_clim = (0, 4)
-
-# ROI mask
-# ROI_mask = sio.loadmat('B1L1T2/ROI_Mask.mat')['ROI_Mask']
-ROI_mask = sio.loadmat('B1L1T2/Brain_Mask.mat')['Brain_Mask']
-
-ROI_mask = ROI_mask > 0  # converting to boolean
-
-im_overlay(back_im=T2_im, back_cmap=T2_cmap, back_clim=T2_clim, front_im=MTR_im, front_cmap=MTR_cmap,
-           front_clim=MTR_clim, transparency_percent=80, mask=ROI_mask, trans_background_flag=False)
