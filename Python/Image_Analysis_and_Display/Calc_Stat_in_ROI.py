@@ -3,6 +3,7 @@
 """
 Purpose: calculating statistics in ROI
 Created on Thu Sep 12 14:10:08 2019
+Modified on March 11, 2020 -> ddof=1 in std
 @author: Or Perlman (or@ieee.org)
 Args: Im - image
       ROI_Mask - as a binary mask with the same shape as Im
@@ -14,7 +15,7 @@ import numpy as np
 def Calc_Stat_in_ROI(Im, ROI_Mask, Print_Flag = True):
     
     ROI_mean = np.mean(Im[ROI_Mask])
-    ROI_std = np.std(Im[ROI_Mask])
+    ROI_std = np.std(Im[ROI_Mask], ddof=1)
     ROI_min = np.amin(Im[ROI_Mask])
     ROI_max = np.amax(Im[ROI_Mask])
     ROI_Values_Flattened = Im[ROI_Mask].flatten('F') # F -> fortran-like (columns order)
