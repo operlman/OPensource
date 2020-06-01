@@ -1,7 +1,5 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
-# To create an envirnment from this file based on exact package versions:
-# $ conda create --name NEWENV --file <this file>
 # platform: linux-64
 @EXPLICIT
 https://repo.anaconda.com/pkgs/main/linux-64/_tflow_180_select-1.0-gpu.conda
@@ -186,7 +184,7 @@ https://repo.anaconda.com/pkgs/main/linux-64/tensorflow-gpu-base-1.4.1-py36h01ca
 https://repo.anaconda.com/pkgs/main/linux-64/tensorflow-tensorboard-1.5.1-py36hf484d3e_1.conda
 https://repo.anaconda.com/pkgs/main/noarch/keras-preprocessing-1.1.0-py_1.conda
 https://repo.anaconda.com/pkgs/main/linux-64/patsy-0.5.1-py36_0.conda
-https://repo.anaconda.com/pkgs/main/linux-64/scikit-image-0.15.0-py36he6710b0_0.conda
+https://repo.anaconda.com/pkgs/main/linux-64/scikit-image-0.16.2-py36h0573a6f_0.conda
 https://repo.anaconda.com/pkgs/main/linux-64/scikit-learn-0.21.1-py36hd81dba3_0.conda
 https://conda.anaconda.org/frankong/linux-64/sigpy-0.1.11-py36h39e3cac_0.tar.bz2
 https://repo.anaconda.com/pkgs/main/linux-64/tensorflow-1.4.1-0.conda
