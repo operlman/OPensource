@@ -49,7 +49,7 @@ raw_data = dicom.dcmread(im_folder_path + '/' + final_long_sorted_file_names[0])
 im_1 = np.asarray(raw_data.pixel_array, dtype=float)  # returns a float NumPy array
 
 # Creating a 3D numpy array to hold all sorted images
-dataToMatch = np.zeros((num_imgs, im_1.shape[0], im_1.shape[1]))
+z_spec_images = np.zeros((num_imgs, im_1.shape[0], im_1.shape[1]))
 
 # Reading all Dicom images into a numpy array and displaying them
 Unified_Font_Size = 15
@@ -59,11 +59,11 @@ fig = plt.figure()
 im_ind = 0
 for cur_file_name in final_long_sorted_file_names:
     DICOM_data = dicom.dcmread(im_folder_path + '/' + cur_file_name)
-    dataToMatch[im_ind, :, :] = np.asarray(DICOM_data.pixel_array, dtype=float)  # returns a float NumPy array
+    z_spec_images[im_ind, :, :] = np.asarray(DICOM_data.pixel_array, dtype=float)  # returns a float NumPy array
 
     if PlotFlag:
         ax = fig.add_subplot(np.ceil(num_imgs/7), 7, im_ind + 1)
-        NRF_plot = plt.imshow(dataToMatch[im_ind, :, :] / np.max(dataToMatch), cmap='gray')
+        NRF_plot = plt.imshow(z_spec_images[im_ind, :, :] / np.max(z_spec_images), cmap='gray')
         NRF_plot.set_clim(0.0, 1.0)
         ax.set_title(im_ind, fontsize=Unified_Font_Size)
         ax.set_axis_off()
