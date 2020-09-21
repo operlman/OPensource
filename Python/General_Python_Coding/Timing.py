@@ -16,12 +16,11 @@ t0 = time.time()
 
 # ----------------------------- #
 
+# Displaying the runtime:
 RunTime = time.time() - t0
-
-#%Displaying the runtime:
-if RunTime<60: #if less than a minute 
-	print('RunTime = '+str(RunTime)+' sec')
-elif RunTime<3600: # if less than an hour
-	print('RunTime = '+str(RunTime/60.0)+' min')
-else: # If took more than an hour
-	print('RunTime = '+str(RunTime/3600.0),' hour')	
+if RunTime < 60:  # if less than a minute
+    print('RunTime = '+str(RunTime)+' sec')
+elif RunTime < 3600:  # if less than an hour
+    print('RunTime = ' + str(RunTime / 60.0) + ' min')
+else:  # If took more than an hour
+    print('RunTime = ' + str(RunTime / 3600.0), ' hour')
