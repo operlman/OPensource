@@ -27,3 +27,5 @@ def b0_correction(b0_map, original_images, w_hz):
                 # Cubic spline interpolation (initially flipping for splrep compatibility)
                 tck = interpolate.splrep(np.flipud(w_hz - cur_pixel_b0), np.flipud(cur_pixel_orig_z_vec), s=0)
                 b0_corrected_images[r_ind, c_ind, :] = np.squeeze(interpolate.splev(w_hz, tck, der=0))
+                
+    return b0_corrected_images
